@@ -237,29 +237,29 @@ cliente1.adicionarTelefone(telefone1Cliente1)
 cliente1.adicionarTelefone(telefone2Cliente1)
 
 //////////////////////////////////////////////////
-const telefone1Cliente2 = new Telefone(11, "98765-4321")
-const telefone2Cliente2 = new Telefone(12, "91234-5678")
+const telefone1Cliente2 = new Telefone(11, "94655-7811")
+const telefone2Cliente2 = new Telefone(12, "12334-3518")
 
 cliente2.adicionarTelefone(telefone1Cliente2)
 cliente2.adicionarTelefone(telefone2Cliente2)
 
 //////////////////////////////////////////////////
-const telefone1Cliente3 = new Telefone(11, "98765-4321")
-const telefone2Cliente3 = new Telefone(12, "91234-5678")
+const telefone1Cliente3 = new Telefone(11, "94685-4781")
+const telefone2Cliente3 = new Telefone(12, "94124-1658")
 
 cliente3.adicionarTelefone(telefone1Cliente3)
 cliente3.adicionarTelefone(telefone2Cliente3)
 
 //////////////////////////////////////////////////
-const telefone1Cliente4 = new Telefone(11, "98765-4321")
-const telefone2Cliente4 = new Telefone(12, "91234-5678")
+const telefone1Cliente4 = new Telefone(11, "92555-4541")
+const telefone2Cliente4 = new Telefone(12, "91565-1427")
 
 cliente4.adicionarTelefone(telefone1Cliente4)
 cliente4.adicionarTelefone(telefone2Cliente4)
 
 //////////////////////////////////////////////////
-const telefone1Cliente5 = new Telefone(11, "98765-4321")
-const telefone2Cliente5 = new Telefone(12, "91234-5678")
+const telefone1Cliente5 = new Telefone(11, "98965-4545")
+const telefone2Cliente5 = new Telefone(12, "98741-5666")
 
 cliente5.adicionarTelefone(telefone1Cliente5)
 cliente5.adicionarTelefone(telefone2Cliente5)
