@@ -10,38 +10,61 @@ class Empresa {
         this.telefones = new Set()
     }
 
-    getRazaoSocial() {
+    get RazaoSocial() {
         return this.razaoSocial
     }
 
-    setRazaoSocial(razaoSocial) {
+    get RazaoSocialMaiusculo() {
+        return this.razaoSocial.toUpperCase()
+    }
+
+    get RazaoSocialMinusculo() {
+        return this.razaoSocial.toLowerCase()
+    }
+
+    set RazaoSocial(razaoSocial) {
         this.razaoSocial = this.capitalize(razaoSocial)
     }
 
-    getNomeFantasia() {
+    get NomeFantasia() {
         return this.nomeFantasia
     }
 
-    setNomeFantasia(nomeFantasia) {
+    get NomeFantasiaMaiusculo() {
+        return this.nomeFantasia.toUpperCase()
+    }
+
+    get NomeFantasiaMinusculo() {
+        return this.nomeFantasia.toLowerCase()
+    }
+
+    set NomeFantasia(nomeFantasia) {
         this.nomeFantasia = this.capitalize(nomeFantasia)
     }
 
-    getCnpj() {
+    get Cnpj() {
         return this.#cnpj
     }
 
-    setCnpj(cnpj) {
+    set Cnpj(cnpj) {
         this.#cnpj = cnpj
     }
 
-    getEndereco() {
+    get Endereco() {
         return this.endereco
     }
 
-    setEndereco(endereco) {
-        this.endereco = this.formatarEndereco(endereco)
+    get EnderecoMaiusculo() {
+        return this.endereco.toUpperCase()
     }
 
+    get EnderecoMinusculo() {
+        return this.endereco.toLowerCase()
+    }
+
+    set Endereco(endereco) {
+        this.endereco = this.formatarEndereco(endereco)
+    }
 
     adicionarCliente(cliente) {
         this.clientes.add(cliente)
@@ -54,7 +77,6 @@ class Empresa {
     removerTelefone(telefone) {
         this.telefones.delete(telefone)
     }
-
 
     capitalize(texto) {
         return texto.replace(/\b\w/g, char => char.toUpperCase())
@@ -69,19 +91,18 @@ class Empresa {
         };
     }
 
-
     detalhe() {
         let descricao = `Razão social: ${this.razaoSocial}\n`
         descricao += `Nome fantasia: ${this.nomeFantasia}\n`
         descricao += "-----------------------------------\n"
 
         this.clientes.forEach(cliente => {
-            descricao += `Nome: ${cliente.getNome()}\n`
-            const end = cliente.getEndereco()
+            descricao += `Nome: ${cliente.Nome}\n`
+            const end = cliente.Endereco
             descricao += `Estado: ${end.estado} Cidade: ${end.cidade} Rua: ${end.rua} Número: ${end.numero}\n`;
 
-            cliente.getTelefones().forEach(telefone => {
-                descricao += `DDD: ${telefone.getDdd()} Número: ${telefone.getNumero()}\n`
+            cliente.Telefones.forEach(telefone => {
+                descricao += `DDD: ${telefone.Ddd} Número: ${telefone.Numero}\n`
             });
 
             descricao += "\n"
@@ -101,32 +122,48 @@ class Cliente {
         this.telefones = new Set()
     }
 
-
-    getNome() {
+    get Nome() {
         return this.nome
     }
 
-    setNome(nome) {
+    get NomeMaiusculo() {
+        return this.nome.toUpperCase()
+    }
+
+    get NomeMinusculo() {
+        return this.nome.toLowerCase()
+    }
+
+    set Nome(nome) {
         this.nome = this.capitalize(nome)
     }
 
-    getCpf() {
+    get Cpf() {
         return this.#cpf
     }
 
-    setCpf(cpf) {
+    set Cpf(cpf) {
         this.#cpf = cpf
     }
 
-    getEndereco() {
+    get Endereco() {
         return this.endereco
     }
 
-    setEndereco(endereco) {
+    get EnderecoMaiusculo() {
+        return this.endereco.toUpperCase()
+    }
+
+    get EnderecoMinusculo() {
+        return this.endereco.toLowerCase()
+    }
+    
+
+    set Endereco(endereco) {
         this.endereco = this.formatarEndereco(endereco)
     }
 
-    getTelefones() {
+    get Telefones() {
         return this.telefones
     }
 
@@ -158,19 +195,19 @@ class Telefone {
         this.numero = numero
     }
 
-    getDdd() {
+    get Ddd() {
         return this.ddd
     }
 
-    setDdd(ddd) {
+    set Ddd(ddd) {
         this.ddd = ddd
     }
 
-    getNumero() {
+    get Numero() {
         return this.numero
     }
 
-    setNumero(numero) {
+    set Numero(numero) {
         this.numero = numero
     }
 }
@@ -178,28 +215,20 @@ class Telefone {
 const empresa = new Empresa('CPS', 'Fatec São José', '12.345.678/0001-99', 
     { estado: 'sp', cidade: 'são paulo', rua: 'mei longe, mas até q perto.', numero: '100' })
 
-    
 const cliente1 = new Cliente('Bertot', '123.456.789-00', 
     { estado: "sp", cidade: "são josé dos campos", rua: "inteligencia quase artificial.", numero: "14" })
 
-    
 const cliente2 = new Cliente('Gerson', '123.321.123-09', 
     { estado: 'sp', cidade: 'são josé dos campos', rua: 'Rua do açaí com leite condensado.', numero: '321'})
 
-    
 const cliente3 = new Cliente('Massanoti', '123.333.111-01',
     { estado: 'sp', cidade: 'são josé dos campos', rua: 'Av python melhor que js.', numero: '111'})
-
 
 const cliente4 = new Cliente('Claudio', '222.333.444-11',
     { estado: 'sp', cidade : 'são josé dos ca[oms', rua: '86 slides de js e fé.', numero: '221'})
 
-
 const cliente5 = new Cliente('Leonardo', '500.500.400-00',
     { estado: 'sp', cidade: 'são josé dos campos', rua: 'js parece um php sem orientação, chei de gambi.', numero: '3301'})
-
-
-
 
 const telefone1Cliente1 = new Telefone(11, "98765-4321")
 const telefone2Cliente1 = new Telefone(12, "91234-5678")
@@ -236,7 +265,6 @@ cliente5.adicionarTelefone(telefone1Cliente5)
 cliente5.adicionarTelefone(telefone2Cliente5)
 
 //////////////////////////////////////////////////
-
 
 empresa.adicionarCliente(cliente1)
 empresa.adicionarCliente(cliente2)
